@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="200.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LogController">
+    <children>
+        <VBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <Label text="00:00:00" />
+            <HBox alignment="CENTER" spacing="10.0">
+                <Button fx:id="startButton" text="Start" />
+                <Button fx:id="pauseButton" text="Pause" />
+                <Button fx:id="resetButton" text="Reset" />
+                <Button fx:id="saveButton" text="Stop" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>
