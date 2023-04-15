@@ -4,58 +4,62 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class LogEntry {
-    private Date startTime;
-    private Date stopTime;
-    private Date date;
+    private long startTime;
+    private long endTime;
     private String designStep;
-
-    public LogEntry(Date startTime, Date stopTime, Date date, String designStep) {
-        this.startTime = startTime;
-        this.stopTime = stopTime;
-        this.date = date;
+    private int totalStoryPoints;
+    int month;
+    int day;
+    int year;
+    
+    public LogEntry(String designStep, int totalStoryPoints) {
+        this.startTime = System.currentTimeMillis();
         this.designStep = designStep;
+        this.totalStoryPoints = totalStoryPoints;
+        LocalDate currentDate = LocalDate.now();
+        this.day = currentDate.getDayOfMonth();
+        this.month = currentDate.getMonthValue();
+        this.year = currentDate.getYear();
+    }
+    
+    public void setNewStartTime(Long starTime) {
+    	this.startTime = starTime;
+    }
+    
+    public void setNewEndTime(Long endTime) {
+    	this.endTime = endTime;
+    	calculateStoryPoints();
     }
 
-    public Date getStartTime() {
+    public long getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getStopTime() {
-        return stopTime;
-    }
-
-    public void setStopTime(Date stopTime) {
-        this.stopTime = stopTime;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public long getEndTime() {
+        return endTime;
     }
 
     public String getDesignStep() {
         return designStep;
     }
-
-    public void setDesignStep(String designStep) {
-        this.designStep = designStep;
+    
+    public String setDesignStep(String designStep) {
+    	return designStep;
     }
 
-    // Override toString method to display the log entry in the desired format
-    @Override
-    public String toString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return dateFormat.format(date) + " - " + designStep + " - Start: " + dateFormat.format(startTime) + " - Stop: " + dateFormat.format(stopTime);
+    public int getTotalStoryPoints() {
+        return totalStoryPoints;
     }
     
-    public String getLogName() {
-    	return date.toString();
+    private void calculateStoryPoints() {
+        long timeDiffMillis = this.endTime - this.startTime;
+        int storyPoints = (int) (timeDiffMillis / 30_000); // 30,000 milliseconds = 30 seconds
+        this.totalStoryPoints = storyPoints;
+    }
+    
+    public String toString() {
+    	String retString = "";
+    	retString += (month + "/" + day + "/" + year + " " + designStep);
+    	return retString;
     }
 }
