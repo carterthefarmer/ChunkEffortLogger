@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="462.0" prefWidth="514.0" style="-fx-background-color: #2b2b2b;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Login">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+         <top>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="#ffffff" layoutX="165.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to Chunk">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Text>
+                  <AnchorPane layoutY="133.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/cookie-removebg-preview%20(1).jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <TextField fx:id="usernameField" layoutX="379.0" layoutY="159.0" style="-fx-background-color: #ffffff; -fx-text-fill: #000000;" />
+                  <Label layoutX="309.0" layoutY="163.0" text="Username" textFill="#ffffff" />
+                  <Label layoutX="311.0" layoutY="229.0" text="Password" textFill="#ffffff" />
+                  <PasswordField fx:id="passwordField" layoutX="379.0" layoutY="225.0" style="-fx-background-color: #ffffff; -fx-text-fill: #000000;" />
+                  <Button fx:id="logInButton" layoutX="429.0" layoutY="259.0" mnemonicParsing="false" onAction="#userLogin" style="-fx-background-color: #ffffff; -fx-text-fill: #000000;" text="Log In" />
+                  <Label fx:id="loginText" layoutX="380.0" layoutY="133.0" prefHeight="18.0" prefWidth="147.0" textFill="#ffffff" />
+                  <Button layoutX="405.0" layoutY="300.0" mnemonicParsing="false" onAction="#createAccount" style="-fx-background-color: #ffffff; -fx-text-fill: #000000;" text="Create Account" />
+               </children>
+            </AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

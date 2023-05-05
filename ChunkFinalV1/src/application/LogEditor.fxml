@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="448.0" prefWidth="783.0" style="-fx-background-color: #2b2b2b;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.LogEditor">
+   <children>
+      <VBox layoutY="29.0" />
+      <VBox prefHeight="36.0" prefWidth="954.0" />
+  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <ChoiceBox fx:id="logSel" layoutX="38.0" layoutY="125.0" prefHeight="25.0" prefWidth="472.0" />
+            <ChoiceBox fx:id="lifeCycleStep" layoutX="38.0" layoutY="239.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="plan" disable="true" layoutX="268.0" layoutY="290.0" prefHeight="26.0" prefWidth="265.0" visible="false" />
+            <ChoiceBox fx:id="effortCat" disable="true" layoutX="38.0" layoutY="290.0" prefWidth="150.0" visible="false" />
+            <Button fx:id="deleteEntry" layoutX="38.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#deleteEntry" text="Delete Entry" />
+            <Button fx:id="splitEntry" disable="true" layoutX="38.0" layoutY="399.0" mnemonicParsing="false" text="Split into Two Entries" visible="false" />
+            <Button fx:id="consoleReturn" layoutX="508.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#returnConsole" text="Proceed to Effort Log Console" visible="false" />
+            <DatePicker fx:id="date" layoutX="38.0" layoutY="180.0" onAction="#selectDate" />
+            <TextField fx:id="startTime" layoutX="292.0" layoutY="180.0" onAction="#startTime" />
+            <TextField fx:id="endTime" layoutX="559.0" layoutY="180.0" onAction="#endTime" />
+            <Label fx:id="invalidDate" layoutX="39.0" layoutY="206.0" prefHeight="17.0" prefWidth="108.0" text="Invalid Date" textFill="RED" visible="false" />
+            <Label fx:id="endtimeError" layoutX="414.0" layoutY="215.0" text="End time must occur after start time" textFill="RED" visible="false" />
+            <Label fx:id="startErrorLabel" layoutX="292.0" layoutY="215.0" text="Invalid Start Time Entered" textFill="RED" visible="false" />
+            <Label fx:id="endErrorLabel" layoutX="559.0" layoutY="215.0" text="Invalid End Time Entered" textFill="RED" visible="false" />
+            <Label layoutX="38.0" layoutY="108.0" text="Select an entry to modify:" textFill="WHITE" />
+            <Label layoutX="39.0" layoutY="163.0" prefHeight="17.0" prefWidth="37.0" text="Date:" textFill="WHITE" />
+            <Label layoutX="292.0" layoutY="163.0" text="Start Time:" textFill="WHITE" />
+            <Label layoutX="559.0" layoutY="163.0" text="Stop Time:" textFill="WHITE" />
+            <Label layoutX="38.0" layoutY="224.0" text="Life Cycle Step:" textFill="WHITE" />
+            <Label disable="true" layoutX="38.0" layoutY="273.0" text="Effort Category:" textFill="WHITE" visible="false" />
+            <Label disable="true" layoutX="268.0" layoutY="273.0" text="Plan:" textFill="WHITE" visible="false" />
+            <Label fx:id="savedUpdateLbl" layoutX="606.0" layoutY="316.0" text="Updates Saved!" visible="false" />
+            <Label fx:id="invalidInputLbl" layoutX="601.0" layoutY="316.0" text="Please correct errors before saving!" textFill="RED" visible="false" />
+            <Label layoutX="357.0" layoutY="163.0" text="Format (HH:MM:SS)" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="dashboardReturn" layoutX="658.0" layoutY="399.0" mnemonicParsing="false" onAction="#returnToDash" text="Return to Dashboard" />
+      <DialogPane fx:id="deletePane" layoutX="298.0" layoutY="170.0" prefHeight="108.0" prefWidth="360.0" visible="false" />
+      <Label fx:id="deleteAskLabel" layoutX="365.0" layoutY="180.0" text="Are you sure you want to delete the entry?" visible="false" />
+      <Button fx:id="cancelBtn" layoutX="355.0" layoutY="238.0" mnemonicParsing="false" onMouseClicked="#cancelDelete" text="Cancel" visible="false" />
+      <Button fx:id="yesBtn" layoutX="565.0" layoutY="239.0" mnemonicParsing="false" onMouseClicked="#confirmDelete" text="Yes" visible="false" />
+      <Button fx:id="updateEntry" layoutX="382.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#saveUpdate" text="Update Entry" />
+      <Label layoutX="621.0" layoutY="162.0" text="Format (HH:MM:SS)" textFill="WHITE" />
+      <Button fx:id="clearLog" layoutX="347.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#clearLog" text="Clear This Effort Log" />
+      <Button fx:id="selectEntryBtn" layoutX="562.0" layoutY="120.0" mnemonicParsing="false" onMouseClicked="#selectEntry" text="Select Entry" />
+      <DialogPane fx:id="clearPane" layoutX="308.0" layoutY="180.0" prefHeight="108.0" prefWidth="360.0" visible="false" />
+      <Label fx:id="clearAskLabel" layoutX="375.0" layoutY="190.0" text="Are you sure you want to clear the entry?" visible="false" />
+      <Button fx:id="cancelClearBtn" layoutX="365.0" layoutY="248.0" mnemonicParsing="false" onMouseClicked="#cancelClear" text="Cancel" visible="false" />
+      <Button fx:id="yesClearBtn" layoutX="575.0" layoutY="249.0" mnemonicParsing="false" onMouseClicked="#confirmClear" text="Yes" visible="false" />
+      <Label layoutX="270.0" layoutY="53.0" text="Chunks Effort Log Editing System" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
